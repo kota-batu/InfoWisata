@@ -1,0 +1,34 @@
+<!--
+******************************************************************
+ PROYEK        : Bio Card Marketing
+ MODUL         : Admin CMS
+ FILE          : index.html
+ VERSI         : v1.0.0
+ PENULIS       : Jimmy
+ DIBUAT        : 2026-08-02
+ TERAKHIR UBAH : 2026-08-02
+
+ DESKRIPSI
+ ------------------------------------------------------------------
+ GitHub Pages selalu mencari "index.html" di root untuk ditampilkan
+ saat domain dibuka tanpa nama file (mis. admin.zerosix.id). File
+ ini HANYA berfungsi redirect otomatis ke login.html - authGuard
+ di setiap halaman lain yang menentukan apakah admin diarahkan ke
+ login atau boleh lanjut ke dashboard.
+******************************************************************
+-->
+
+<!-- RIWAYAT VERSI: v1.0.0 - Initial Release. -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="0; url=login.html">
+<title>Bio Card Marketing — Admin</title>
+</head>
+<body>
+<script>window.location.href = "login.html";</script>
+<p>Mengarahkan ke halaman login... Kalau tidak otomatis pindah, <a href="login.html">klik di sini</a>.</p>
+</body>
+</html>
