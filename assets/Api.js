@@ -36,7 +36,7 @@
  * ----------------------------------------------------------------
  * URL Web App Apps Script Bio Card Marketing.
  ******************************************************************/
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzpvA6z0XtkTxkt76QOcaxE_jU_onee1RUjrTAYXNAfF1gPF4p8-U3OhyVEU-6Vd-0ifw/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw02xGCQ6Rb3w3T6c_IShKeNXJo6ImO7HFkRKUL9x3pTmok1lvCuIrZCQfBUMHMSjBnqA/exec";
 
 /******************************************************************
  * FUNGSI KOMUNIKASI API
