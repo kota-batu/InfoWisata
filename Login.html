@@ -1,0 +1,67 @@
+<!--
+******************************************************************
+ PROYEK        : Bio Card Marketing
+ MODUL         : Admin CMS
+ FILE          : login.html
+ VERSI         : v1.0.0
+ PENULIS       : Jimmy
+ DIBUAT        : 2026-08-02
+ TERAKHIR UBAH : 2026-08-02
+
+ DESKRIPSI
+ ------------------------------------------------------------------
+ Halaman login. Verifikasi password lewat action "login" (lihat
+ Auth.gs backend). Berhasil -> tandai sesi, redirect ke dashboard.
+******************************************************************
+-->
+
+<!--
+******************************************************************
+ RIWAYAT VERSI
+ ------------------------------------------------------------------
+ v1.0.0
+ - Initial Release. Dipecah dari admin/index.html versi SPA lama
+   menjadi halaman berdiri sendiri.
+******************************************************************
+-->
+
+<!--
+******************************************************************
+ DEPENDENSI
+ ------------------------------------------------------------------
+ Dibutuhkan  : assets/style.css, assets/api.js, login.js
+ Digunakan Oleh : -
+******************************************************************
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Bio Card Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div id="loginScreen">
+  <div class="badge-card">
+    <div class="badge-punch"></div>
+    <div class="badge-avatar">BC</div>
+    <div class="login-title">Bio Card Marketing</div>
+    <div class="login-sub">Masuk ke Admin CMS</div>
+
+    <label class="field-label" for="passwordInput">Password</label>
+    <input type="password" id="passwordInput" class="field-input" placeholder="Masukkan password admin">
+    <div id="loginError">Password salah. Coba lagi.</div>
+    <button class="btn-primary" id="loginBtn" style="margin-top:18px;" onclick="handleLogin()">Masuk</button>
+  </div>
+</div>
+
+<script src="assets/api.js"></script>
+<script src="assets/app.js"></script>
+<script src="login.js"></script>
+</body>
+</html>

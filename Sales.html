@@ -1,0 +1,128 @@
+<!--
+******************************************************************
+ PROYEK        : Bio Card Marketing
+ MODUL         : Admin CMS
+ FILE          : sales.html
+ VERSI         : v1.0.0
+ PENULIS       : Jimmy
+ DIBUAT        : 2026-08-02
+ TERAKHIR UBAH : 2026-08-02
+
+ DESKRIPSI
+ ------------------------------------------------------------------
+ Kelola tim Sales: list semua (aktif & nonaktif), tambah, ubah,
+ upload/ganti foto, aktifkan/nonaktifkan.
+******************************************************************
+-->
+
+<!-- RIWAYAT VERSI: v1.0.0 - Initial Release. Dipecah dari admin/index.html versi SPA. -->
+
+<!--
+ DEPENDENSI
+ ------------------------------------------------------------------
+ Dibutuhkan     : assets/style.css, assets/api.js, assets/app.js,
+                  partials/sidebar.html, sales.js
+ Digunakan Oleh : -
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales — Bio Card Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="sales">
+
+<div id="appShell">
+  <div id="sidebarContainer"></div>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="topbar-title">Sales</div>
+        <div class="topbar-sub">Kelola tim sales yang tampil di halaman bio</div>
+      </div>
+    </div>
+    <div class="content" id="pageContent">
+      <div class="card-grid"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+    </div>
+  </main>
+</div>
+
+<!-- MODAL: TAMBAH / EDIT SALES -->
+<div class="modal-overlay" id="salesModalOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title" id="salesModalTitle">Tambah Sales</div>
+      <button class="modal-close" onclick="closeSalesModal()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <div class="photo-upload">
+        <div class="photo-preview" id="photoPreview">?</div>
+        <div>
+          <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="handlePhotoChange(event)">
+          <button type="button" class="upload-btn" onclick="document.getElementById('photoInput').click()">Pilih Foto</button>
+        </div>
+      </div>
+
+      <div class="form-row-2">
+        <div>
+          <label class="field-label">Nama</label>
+          <input type="text" id="inputNama" class="field-input" placeholder="Nama sales" oninput="autoSlug()">
+        </div>
+        <div>
+          <label class="field-label">Jabatan</label>
+          <input type="text" id="inputJabatan" class="field-input" placeholder="Marketing">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="field-label">ID (otomatis dari nama, boleh diubah)</label>
+        <input type="text" id="inputId" class="field-input" placeholder="jimmy" style="font-family:var(--font-mono)">
+      </div>
+      <div class="form-error" id="idError">ID ini sudah dipakai sales lain, pakai ID lain.</div>
+
+      <div class="form-row-2">
+        <div>
+          <label class="field-label">WhatsApp</label>
+          <input type="text" id="inputWa" class="field-input" placeholder="6281234567890">
+        </div>
+        <div>
+          <label class="field-label">Urutan</label>
+          <input type="number" id="inputUrutan" class="field-input" placeholder="1">
+        </div>
+      </div>
+
+      <div class="form-row"><label class="field-label">Instagram</label><input type="text" id="inputInstagram" class="field-input" placeholder="https://instagram.com/..."></div>
+      <div class="form-row"><label class="field-label">TikTok</label><input type="text" id="inputTiktok" class="field-input" placeholder="https://tiktok.com/@..."></div>
+      <div class="form-row"><label class="field-label">Facebook</label><input type="text" id="inputFacebook" class="field-input" placeholder="https://facebook.com/..."></div>
+      <div class="form-row"><label class="field-label">Telegram</label><input type="text" id="inputTelegram" class="field-input" placeholder="https://t.me/..."></div>
+      <div class="form-row"><label class="field-label">Email</label><input type="email" id="inputEmail" class="field-input" placeholder="nama@email.com"></div>
+
+      <div class="checkbox-row" id="statusRow" style="display:none;">
+        <input type="checkbox" id="inputAktif">
+        <label for="inputAktif">Sales aktif (tampil di website)</label>
+      </div>
+
+    </div>
+    <div class="modal-foot">
+      <button class="btn-secondary" onclick="closeSalesModal()">Batal</button>
+      <button class="btn-primary btn-save" id="saveSalesBtn" onclick="saveSales()">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="assets/api.js"></script>
+<script src="assets/app.js"></script>
+<script src="sales.js"></script>
+</body>
+</html>

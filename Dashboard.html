@@ -1,0 +1,66 @@
+<!--
+******************************************************************
+ PROYEK        : Bio Card Marketing
+ MODUL         : Admin CMS
+ FILE          : dashboard.html
+ VERSI         : v1.0.0
+ PENULIS       : Jimmy
+ DIBUAT        : 2026-08-02
+ TERAKHIR UBAH : 2026-08-02
+
+ DESKRIPSI
+ ------------------------------------------------------------------
+ Ringkasan sistem: jumlah Sales/Links/Wisata aktif, dan total
+ kunjungan hari ini.
+******************************************************************
+-->
+
+<!--
+ RIWAYAT VERSI
+ ------------------------------------------------------------------
+ v1.0.0 - Initial Release. Dipecah dari admin/index.html versi SPA.
+-->
+
+<!--
+ DEPENDENSI
+ ------------------------------------------------------------------
+ Dibutuhkan     : assets/style.css, assets/api.js, assets/app.js,
+                  partials/sidebar.html, dashboard.js
+ Digunakan Oleh : -
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Bio Card Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="dashboard">
+
+<div id="appShell">
+  <div id="sidebarContainer"></div>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="topbar-title">Dashboard</div>
+        <div class="topbar-sub">Ringkasan sistem Bio Card Marketing</div>
+      </div>
+    </div>
+    <div class="content" id="pageContent">
+      <div class="card-grid"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+    </div>
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script src="assets/api.js"></script>
+<script src="assets/app.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!--
+******************************************************************
+ PROYEK        : Bio Card Marketing
+ MODUL         : Admin CMS
+ FILE          : wisata.html
+ VERSI         : v1.0.0
+ PENULIS       : Jimmy
+ DIBUAT        : 2026-08-02
+ TERAKHIR UBAH : 2026-08-02
+
+ DESKRIPSI
+ ------------------------------------------------------------------
+ Kelola katalog Wisata: list semua (aktif & nonaktif), tambah, ubah,
+ upload/ganti gambar katalog, aktifkan/nonaktifkan.
+******************************************************************
+-->
+
+<!-- RIWAYAT VERSI: v1.0.0 - Initial Release. Dipecah dari admin/index.html versi SPA. -->
+
+<!--
+ DEPENDENSI
+ ------------------------------------------------------------------
+ Dibutuhkan     : assets/style.css, assets/api.js, assets/app.js,
+                  partials/sidebar.html, wisata.js
+ Digunakan Oleh : -
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wisata — Bio Card Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="wisata">
+
+<div id="appShell">
+  <div id="sidebarContainer"></div>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="topbar-title">Wisata</div>
+        <div class="topbar-sub">Kelola katalog wisata</div>
+      </div>
+    </div>
+    <div class="content" id="pageContent">
+      <div class="card-grid"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+    </div>
+  </main>
+</div>
+
+<!-- MODAL: TAMBAH / EDIT WISATA -->
+<div class="modal-overlay" id="wisataModalOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title" id="wisataModalTitle">Tambah Wisata</div>
+      <button class="modal-close" onclick="closeWisataModal()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <div style="margin-bottom:18px;">
+        <div class="photo-preview wide" id="wisataPhotoPreview">Belum ada gambar</div>
+        <input type="file" id="wisataPhotoInput" accept="image/*" style="display:none" onchange="handleWisataPhotoChange(event)">
+        <button type="button" class="upload-btn" style="margin-top:10px;width:100%;" onclick="document.getElementById('wisataPhotoInput').click()">Pilih Gambar Katalog</button>
+      </div>
+
+      <div class="form-row-2">
+        <div><label class="field-label">Nama Wisata</label><input type="text" id="wisataNama" class="field-input" placeholder="JTP 1"></div>
+        <div><label class="field-label">Urutan</label><input type="number" id="wisataUrutan" class="field-input" placeholder="1"></div>
+      </div>
+
+      <div class="checkbox-row" id="wisataStatusRow" style="display:none;">
+        <input type="checkbox" id="wisataAktif">
+        <label for="wisataAktif">Wisata aktif (tampil di katalog)</label>
+      </div>
+
+    </div>
+    <div class="modal-foot">
+      <button class="btn-secondary" onclick="closeWisataModal()">Batal</button>
+      <button class="btn-primary btn-save" id="saveWisataBtn" onclick="saveWisata()">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="assets/api.js"></script>
+<script src="assets/app.js"></script>
+<script src="wisata.js"></script>
+</body>
+</html>

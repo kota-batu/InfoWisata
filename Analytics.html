@@ -1,0 +1,62 @@
+<!--
+******************************************************************
+ PROYEK        : Bio Card Marketing
+ MODUL         : Admin CMS
+ FILE          : analytics.html
+ VERSI         : v1.0.0
+ PENULIS       : Jimmy
+ DIBUAT        : 2026-08-02
+ TERAKHIR UBAH : 2026-08-02
+
+ DESKRIPSI
+ ------------------------------------------------------------------
+ Statistik kunjungan dan klik: total hari ini, breakdown per jenis
+ event, dan sales yang paling banyak dipilih.
+******************************************************************
+-->
+
+<!-- RIWAYAT VERSI: v1.0.0 - Initial Release. -->
+
+<!--
+ DEPENDENSI
+ ------------------------------------------------------------------
+ Dibutuhkan     : assets/style.css, assets/api.js, assets/app.js,
+                  partials/sidebar.html, analytics.js
+ Digunakan Oleh : -
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics — Bio Card Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="analytics">
+
+<div id="appShell">
+  <div id="sidebarContainer"></div>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="topbar-title">Analytics</div>
+        <div class="topbar-sub">Statistik kunjungan dan klik</div>
+      </div>
+    </div>
+    <div class="content" id="pageContent">
+      <div class="card-grid"><div class="skeleton"></div><div class="skeleton"></div></div>
+    </div>
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script src="assets/api.js"></script>
+<script src="assets/app.js"></script>
+<script src="analytics.js"></script>
+</body>
+</html>

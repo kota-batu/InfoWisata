@@ -1,0 +1,91 @@
+<!--
+******************************************************************
+ PROYEK        : Bio Card Marketing
+ MODUL         : Admin CMS
+ FILE          : links.html
+ VERSI         : v1.0.0
+ PENULIS       : Jimmy
+ DIBUAT        : 2026-08-02
+ TERAKHIR UBAH : 2026-08-02
+
+ DESKRIPSI
+ ------------------------------------------------------------------
+ Kelola daftar Links: list semua (aktif & nonaktif), tambah, ubah,
+ aktifkan/nonaktifkan, urutan lewat drag-drop / tombol panah.
+******************************************************************
+-->
+
+<!-- RIWAYAT VERSI: v1.0.0 - Initial Release. Dipecah dari admin/index.html versi SPA. -->
+
+<!--
+ DEPENDENSI
+ ------------------------------------------------------------------
+ Dibutuhkan     : assets/style.css, assets/api.js, assets/app.js,
+                  partials/sidebar.html, links.js
+ Digunakan Oleh : -
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Links — Bio Card Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="links">
+
+<div id="appShell">
+  <div id="sidebarContainer"></div>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="topbar-title">Links</div>
+        <div class="topbar-sub">Kelola daftar link yang tampil di halaman bio</div>
+      </div>
+    </div>
+    <div class="content" id="pageContent">
+      <div class="skeleton" style="height:220px;"></div>
+    </div>
+  </main>
+</div>
+
+<!-- MODAL: TAMBAH / EDIT LINK -->
+<div class="modal-overlay" id="linkModalOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title" id="linkModalTitle">Tambah Link</div>
+      <button class="modal-close" onclick="closeLinkModal()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row"><label class="field-label">Judul</label><input type="text" id="linkJudul" class="field-input" placeholder="Instagram"></div>
+      <div class="form-row"><label class="field-label">Deskripsi</label><input type="text" id="linkDeskripsi" class="field-input" placeholder="Official Instagram"></div>
+      <div class="form-row-2">
+        <div><label class="field-label">Icon</label><input type="text" id="linkIcon" class="field-input" placeholder="instagram"></div>
+        <div><label class="field-label">&nbsp;</label><div class="form-hint" style="margin-top:12px;">Nama singkat, mis. instagram, maps, hotel, gift</div></div>
+      </div>
+      <div class="form-row"><label class="field-label">URL</label><input type="url" id="linkUrl" class="field-input" placeholder="https://instagram.com/..."></div>
+      <div class="checkbox-row" id="linkStatusRow" style="display:none;">
+        <input type="checkbox" id="linkAktif">
+        <label for="linkAktif">Link aktif (tampil di website)</label>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-secondary" onclick="closeLinkModal()">Batal</button>
+      <button class="btn-primary btn-save" id="saveLinkBtn" onclick="saveLink()">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="assets/api.js"></script>
+<script src="assets/app.js"></script>
+<script src="links.js"></script>
+</body>
+</html>
